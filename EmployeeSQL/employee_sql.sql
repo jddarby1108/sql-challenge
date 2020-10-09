@@ -28,7 +28,8 @@
 	
 -- CREATE TABLE "salaries" (
 --     "emp_no" VARCHAR PRIMARY KEY   NOT NULL,
---     "salary" INTEGER   NOT NULL
+--     "salary" INTEGER   NOT NULL,
+-- 	FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 --     );
 
 -- CREATE TABLE "dept_emp" (
@@ -42,4 +43,16 @@
 --     "title" VARCHAR   NOT NULL
 --    );
 
-SELECT * FROM dept_emp;
+-- SELECT * FROM dept_emp;
+
+-- #1. details of employees
+
+SELECT 
+employees.emp_no, 
+employees.last_name, 
+employees.first_name, 
+employees.sex,  
+salaries.salary
+FROM employees
+INNER JOIN salaries ON
+employees.emp_no = salaries.emp_no;
