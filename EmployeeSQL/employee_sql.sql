@@ -47,12 +47,35 @@
 
 -- #1. details of employees
 
+-- SELECT 
+-- employees.emp_no, 
+-- employees.last_name, 
+-- employees.first_name, 
+-- employees.sex,  
+-- salaries.salary
+-- FROM employees
+-- INNER JOIN salaries ON
+-- employees.emp_no = salaries.emp_no;
+
+
+-- #2. details for employees hired 1986
+-- SELECT 
+-- employees.emp_no, 
+-- employees.last_name, 
+-- employees.first_name, 
+-- employees.hire_date
+-- FROM employees
+-- WHERE employees.hire_date::text LIKE '1986%'
+-- ;
+
+-- #3. DEPARTMENT DETAILS
 SELECT 
 employees.emp_no, 
 employees.last_name, 
-employees.first_name, 
-employees.sex,  
-salaries.salary
+employees.first_name,
 FROM employees
-INNER JOIN salaries ON
-employees.emp_no = salaries.emp_no;
+INNER JOIN dept_emp ON
+employees.emp_no = dept_emp.emp_no;
+-- 	JOIN departments ON
+-- 	departments.dept_no = dept_name.dept_no
+-- 	GROUP BY employees.emp_no;
